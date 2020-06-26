@@ -10,13 +10,13 @@ module.exports=(app)=>{
         res.redirect('/');
     })
 
-    app.post('/addFriend', requireLogin, async (req, res)=>{
+    app.post('/api/addFriend', requireLogin, async (req, res)=>{
         req.user.friends.add(req.user.id);
         const user = await req.user.save();
         res.send(user);
     });
 
-    app.get('/friendList', requireLogin, (req, res)=>{
+    app.get('/api/friendList', requireLogin, (req, res)=>{
         req.user.friends.forEach(id => {
             
         });
